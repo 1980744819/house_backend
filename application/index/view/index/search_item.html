@@ -1,0 +1,23 @@
+{layout name="layout" /}
+<?php
+    var_dump($data);
+?>
+<div>
+    <form action="{:url('index/index/show_search_result')}" method="post">
+        <?php
+            for($i=0;$i<$length;$i++){
+                echo "<label for=$lists[$i]>$lists[$i]: </label>";
+                echo "<select name=$lists[$i] class=\"custom-select\" id=$lists[$i]>";
+                echo "<option value=\"*\" selected>所有</option>";
+                var_dump($data[$lists[$i]]);
+                foreach($data[$lists[$i]] as $index=>$item){
+                    echo "<option value=$item >$item</option>";
+                }
+                echo "</select>";
+            }
+        ?>
+        <div>
+            <button class="btn btn-primary" type="submit">submit</button>
+        </div>
+    </form>
+</div>

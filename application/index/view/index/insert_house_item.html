@@ -1,0 +1,112 @@
+{layout name="layout" /}
+<div>
+    <form action="{:url('index/index/get_insert_house_item')}" method="post">
+        <div class="form-group">
+            <label for="location">位置: </label>
+            <input name="location" type="text" class="form-control" id="location" required placeholder="输入区域信息(东区/北区)">
+        </div>
+        <div class="form-group">
+            <label for="name">名称: </label>
+            <input name="name" type="text" class="form-control" id="name" required placeholder="输入房间名（东青-111）">
+        </div>
+        <div class="form-group">
+            <label for="structure">居室结构: </label>
+            <select name="structure" class="custom-select" id="structure">
+                <option value="1" selected>1居室</option>
+                <option value="2">2居室</option>
+                <option value="3">3居室</option>
+                <option value="4">4居室</option>
+                <option value="5">5居室</option>
+                <option value="6">6居室</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="covered_area">建筑面积: </label>
+            <input name="covered_area" type="number" class="form-control" id="covered_area" required
+                   placeholder="输入建筑面积（100.00）"
+                   value="60.00">
+        </div>
+        <div class="form-group">
+            <label for="use_area">建筑面积: </label>
+            <input name="use_area" type="number" class="form-control" id="use_area" required
+                   placeholder="输入使用面积（100.00）"
+                   value="60.00">
+        </div>
+        <div class="form-group">
+            <label for="user_name">当前入住用户姓名: </label>
+            <input name="user_name" type="text" class="form-control" id="user_name" required placeholder="输入使用人姓名（张三）">
+        </div>
+        <div class="form-group">
+            <label for="price">租金标准/平方米: </label>
+            <input name="price" type="number" class="form-control" id="price" required placeholder="输入租金标准/平方米"
+                   value="200">
+        </div>
+        <div class="form-group">
+            <label for="status">是否装修: </label>
+            <select name="status" class="custom-select" id="status">
+                <option value="1" selected>否</option>
+                <option value="2">是</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="decorate">租赁状态: </label>
+            <select name="decorate" class="custom-select" id="decorate">
+                <option value="1" selected>已出租</option>
+                <option value="2">未出租</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="title">使用者职称: </label>
+            <input name="title" type="text" class="form-control" id="title" required placeholder="职称（教授）">
+        </div>
+        <div class="form-group">
+            <label for="belong_to">所属单位: </label>
+            <input name="belong_to" type="text" class="form-control" id="belong_to" required placeholder="所属单位">
+        </div>
+        <div class="form-group">
+            <label for="phone_number">电话号码: </label>
+            <input name="phone_number" type="text" class="form-control" id="phone_number" required placeholder="电话号码">
+        </div>
+        <div class="form-group">
+            <label for="check_in_time">入住时间: </label>
+            <input name="check_in_time" type="date" class="form-control" id="check_in_time" required placeholder="入住时间">
+        </div>
+        <div class="form-group">
+            <label for="leave_time">离开时间: </label>
+            <input name="leave_time" type="date" class="form-control" id="leave_time" placeholder="离开时间">
+        </div>
+        <div class="form-group">
+            <label for="contract_id">合同编号: </label>
+            <input name="contract_id" type="text" class="form-control" id="contract_id" placeholder="合同编号">
+        </div>
+        <div class="form-group">
+            <label for="floor">楼层: </label>
+            <input name="floor" type="number" class="form-control" id="floor" placeholder="楼层">
+        </div>
+        <div class="form-group">
+            <label for="direction">朝向: </label>
+            <input name="direction" type="text" class="form-control" id="direction" placeholder="朝向（东/南/西/北）">
+        </div>
+        <div class="form-group">
+            <label for="pay_price">租金（一共）: </label>
+            <input name="pay_price" type="number" class="form-control" id="pay_price" placeholder="租金" value="3000">
+        </div>
+        <div class="form-group">
+            <label for="get_money">已收租金: </label>
+            <input name="get_money" type="number" class="form-control" id="get_money" placeholder="已收租金" value="0">
+        </div>
+        <div class="form-group">
+            <label for="get_money_time">收租时间: </label>
+            <input name="get_money_time" type="number" class="form-control" id="get_money_time" placeholder="收租时间"
+                   min="1" max="31">
+        </div>
+        <div class="form-group">
+            <label for="remark">备注: </label>
+            <input name="remark" type="text" class="form-control" id="remark" placeholder="备注">
+        </div>
+        <!--<div>-->
+        <button class="btn btn-primary" type="submit">submit</button>
+        <!--</div>-->
+    </form>
+</div>
+<!--<script src="/static/jquery/dist/jquery.js"></script>-->

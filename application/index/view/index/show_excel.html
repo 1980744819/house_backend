@@ -1,0 +1,74 @@
+{layout name="layout" /}
+<?php
+    var_dump($houses);
+?>
+<div style="overflow: scroll;">
+    <table class="table table-striped table-hover table-bordered table-responsive-lg" style="min-width:3000px">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>区域</th>
+            <th>房号</th>
+            <th>居室结构</th>
+            <th>建筑面积</th>
+            <th>使用面积</th>
+            <th>现使用人姓名</th>
+            <th>租金标准（元/建筑平方米）</th>
+            <th>装修状态</th>
+            <th>租赁状态</th>
+            <th>职称</th>
+            <th>单位</th>
+            <th>联系方式</th>
+            <th>入住时间</th>
+            <th>应腾退时间</th>
+            <th>合同编号</th>
+            <th>楼层</th>
+            <th>朝向</th>
+            <th>租金</th>
+            <th>已收租金</th>
+            <th>收租时间</th>
+            <th>备注</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php foreach($houses as $key=>$user){ ?>
+        <tr id="a">
+
+            <th id="index"><?php  echo $key+1; ?></th>
+            <th id="location"><input type="text" class="input-group" value="{$user.location}"></th>
+            <th id="name"><input type="text" class="input-group" value="{$user.name}"></th>
+            <th id="structure"><input type="text" class="input-group" value="{$user.structure}"></th>
+            <th id="covered_area"><input type="text" class="input-group" value="{$user.covered_area}"></th>
+            <th id="use_area"><input type="text" class="input-group" value="{$user.use_area}"></th>
+            <th id="user_name"><input type="text" class="input-group" value="{$user.user_name}"></th>
+            <th id="price"><input type="text" class="input-group" value="{$user.price}"></th>
+            <th id="decorate"><input type="text" class="input-group" value="{$user.decorate}"></th>
+            <th id="status"><input type="text" class="input-group" value="{$user.status}"></th>
+            <th id="title"><input type="text" class="input-group" value="{$user.title}"></th>
+            <th id="belong_to"><input type="text" class="input-group" value="{$user.belong_to}"></th>
+            <th id="phone_number"><input type="text" class="input-group" value="{$user.phone_number}"></th>
+            <th id="check_in_time"><input type="text" class="input-group" value="{$user.check_in_time}">
+            </th>
+            <th id="leave_time"><input type="text" class="input-group" value="{$user.leave_time}"></th>
+            <th id="contract_id"><input type="text" class="input-group" value="{$user.contract_id}"></th>
+            <th id="floor"><input type="text" class="input-group" value="{$user.floor}"></th>
+            <th id="direction"><input type="text" class="input-group" value="{$user.direction}"></th>
+            <th id="pay_price"><input type="text" class="input-group" value="{$user.pay_price}"></th>
+            <th id="get_money"><input type="text" class="input-group" value="{$user.get_money}"></th>
+            <th id="get_money_time"><input type="text" class="input-group" value="{$user.get_money_time}"></th>
+            <th id="remark"><input type="text" class="input-group" value="{$user.remark}"></th>
+
+        </tr>
+
+        <?php
+            }
+        ?>
+        </tbody>
+    </table>
+    <form method="post" action="{:url('index/index/excel_input')}">
+        <button class="btn btn-primary" type="submit">submit</button>
+    </form>
+
+</div>

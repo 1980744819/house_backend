@@ -1,0 +1,239 @@
+{layout name="layout" /}
+
+<div>
+    <input type='text' name='textfield' id='textfield' class='txt'/><input
+        onclick="document.getElementById('uploadfile').click()" type='button' class='btn' value='浏览...'/>
+    <input style="display: none;" type="file" id="uploadfile" autofocus="autofocus"
+           onchange="document.getElementById('textfield').value= getFile(this)">
+    <br>
+    <button class="btn btn-primary">submit</button>
+</div>
+<div style="overflow: scroll;">
+    <table class="table table-striped table-hover table-bordered table-responsive-lg" style="min-width:3000px">
+        <thead>
+        <tr>
+            <th>删除信息</th>
+            <th>保存信息</th>
+            <th>序号</th>
+            <th>id</th>
+            <th>区域</th>
+            <th>房号</th>
+            <th>居室结构</th>
+            <th>建筑面积</th>
+            <th>使用面积</th>
+            <th>现使用人姓名</th>
+            <th>租金标准（元/建筑平方米）</th>
+            <th>装修状态</th>
+            <th>租赁状态</th>
+            <th>职称</th>
+            <th>单位</th>
+            <th>联系方式</th>
+            <th>入住时间</th>
+            <th>应腾退时间</th>
+            <th>合同编号</th>
+            <th>楼层</th>
+            <th>朝向</th>
+            <th>租金</th>
+            <th>已收租金</th>
+            <th>收租时间</th>
+            <th>备注</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php foreach($houses as $key=>$user){ ?>
+        <tr id="a">
+            <th>
+                <button class="btn btn-danger row" id="delete">删除</button>
+            </th>
+            <th>
+                <button class="btn row badge-info" id="save">保存</button>
+            </th>
+            <th id="index"><?php  echo $key+1; ?></th>
+            <th id="id">{$user.id}</th>
+            <th id="location"><input type="text" class="input-group" value="{$user.location}"></th>
+            <th id="name"><input type="text" class="input-group" value="{$user.name}"></th>
+            <th id="structure"><input type="text" class="input-group" value="{$user.structure}"></th>
+            <th id="covered_area"><input type="text" class="input-group" value="{$user.covered_area}"></th>
+            <th id="use_area"><input type="text" class="input-group" value="{$user.use_area}"></th>
+            <th id="user_name"><input type="text" class="input-group" value="{$user.user_name}"></th>
+            <th id="price"><input type="text" class="input-group" value="{$user.price}"></th>
+            <th id="decorate"><input type="text" class="input-group" value="{$user.decorate}"></th>
+            <th id="status"><input type="text" class="input-group" value="{$user.status}"></th>
+            <th id="title"><input type="text" class="input-group" value="{$user.title}"></th>
+            <th id="belong_to"><input type="text" class="input-group" value="{$user.belong_to}"></th>
+            <th id="phone_number"><input type="text" class="input-group" value="{$user.phone_number}"></th>
+            <th id="check_in_time"><input type="text" class="input-group" value="{$user.check_in_time}">
+            </th>
+            <th id="leave_time"><input type="text" class="input-group" value="{$user.leave_time}"></th>
+            <th id="contract_id"><input type="text" class="input-group" value="{$user.contract_id}"></th>
+            <th id="floor"><input type="text" class="input-group" value="{$user.floor}"></th>
+            <th id="direction"><input type="text" class="input-group" value="{$user.direction}"></th>
+            <th id="pay_price"><input type="text" class="input-group" value="{$user.pay_price}"></th>
+            <th id="get_money"><input type="text" class="input-group" value="{$user.get_money}"></th>
+            <th id="get_money_time"><input type="text" class="input-group" value="{$user.get_money_time}"></th>
+            <th id="remark"><input type="text" class="input-group" value="{$user.remark}"></th>
+
+        </tr>
+
+        <?php
+            }
+        ?>
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-primary col-1 offset-11" onclick="addrow()">增加</button>
+
+<script type="text/javascript">
+
+
+    function getFile(obj) {
+        if (obj) {
+            if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+                obj.select();
+                return document.selection.createRange().text;
+            }
+            else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+                if (obj.files) {
+                    return obj.files.item(0).getAsDataURL();
+                }
+                return obj.value;
+            }
+            return obj.value;
+        }
+    }
+
+    function addrow() {
+        var table = $("table");
+        var td = $("<tr>" +
+            "<th id='id'></th>" +
+            "<th id='location'><input type='text' class='input-group'></th>" +
+            "<th id='name'><input type='text' class='input-group'></th>" +
+            "<th id='structure'><input type='text' class='input-group'></th>" +
+            "<th id='covered_area'><input type='text' class='input-group'></th>" +
+            "<th id='use_area'><input type='text' class='input-group'></th>" +
+            "<th id='user_name'><input type='text' class='input-group'></th>" +
+            "<th id='price'><input type='text' class='input-group'></th>" +
+            "<th id='decorate'><input type='text' class='input-group'></th>" +
+            "<th id='status'><input type='text' class='input-group'></th>" +
+            "<th id='title'><input type='text' class='input-group'></th>" +
+            "<th id='belong_to'><input type='text' class='input-group'></th>" +
+            "<th id='phone_number'><input type='text' class='input-group'></th>" +
+            "<th id='check_in_time'><input type='date' class='input-group'></th>" +
+            "<th id='leave_time'><input type='text' class='input-group'></th>" +
+            "<th id='contract_id'><input type='text' class='input-group'></th>" +
+            "<th id='floor'><input type='text' class='input-group'></th>" +
+            "<th id='direction'><input type='text' class='input-group'></th>" +
+            "<th id='pay_price'><input type='text' class='input-group'></th>" +
+            "<th id='get_money'><input type='text' class='input-group'></th>" +
+            "<th id='get_money_time'><input type='text' class='input-group'></th>" +
+            "<th id='remark'><input type='text' class='input-group'></th>" +
+            "<th> <button class='btn btn-danger row' id='delete' onclick='delete()'>删除</button></th><th><button class='btn row badge-info' id='save' onclick='save()'>保存</button></th></tr>"
+        );
+        var temp_tr = $("tr:last").clone(true);
+        var id = parseInt(temp_tr.find("#index").html());
+        table.append(temp_tr);
+        $("tr:last").find("#index").html(id + 1);
+        $("tr:last").find("#id").html("");
+        $("tr:last").find("input").val("");
+    };
+</script>
+<script src="/static/jquery/dist/jquery.js"></script>
+<script>
+
+    var save_url = "{:url('index/index/change')}";
+    var delete_url = "{:url('index/index/delete')}";
+
+    $(function () {
+        $("#save").on('click', function () {
+            var parent = $(this).parent().parent(),
+                id = parent.find("#id").html(),
+                location = parent.find("#location").children().val(),
+                name = parent.find("#name").children().val(),
+                structure = parent.find("#structure").children().val(),
+                covered_area = parent.find("#covered_area").children().val(),
+                use_area = parent.find("#use_area").children().val(),
+                user_name = parent.find("#user_name").children().val(),
+                price = parent.find("#price").children().val(),
+                decorate = parent.find("#decorate").children().val(),
+                status = parent.find("#status").children().val(),
+                title = parent.find("#title").children().val(),
+                belong_to = parent.find("#belong_to").children().val(),
+                check_in_time = parent.find("#check_in_time").children().val(),
+                leave_time = parent.find("#leave_time").children().val(),
+                contract_id = parent.find("#contract_id").children().val(),
+                floor = parent.find("#floor").children().val(),
+                direction = parent.find("#direction").children().val(),
+                pay_price = parent.find("#pay_price").children().val(),
+                get_money = parent.find("#get_money").children().val(),
+                get_money_time = parent.find("#get_money_time").children().val(),
+                remark = parent.find("#remark").children().val();
+
+            var data = {
+                id: id,
+                location: location,
+                name: name,
+                structure: structure,
+                covered_area: covered_area,
+                use_area: use_area,
+                user_name: user_name,
+                price: price,
+                decorate: decorate,
+                status: status,
+                title: title,
+                belong_to: belong_to,
+                check_in_time: check_in_time,
+                leave_time: leave_time,
+                contract_id: contract_id,
+                floor: floor,
+                direction: direction,
+                pay_price: pay_price,
+                get_money: get_money,
+                get_money_time: get_money_time,
+                remark: remark
+            };
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                url: save_url,
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        console.log(true);
+                        console.log(data);
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+
+        $("#delete").click(function () {
+
+            var parent = $(this).parent().parent();
+            var id = parent.find("#id").html();
+            $.ajax({
+                type: "POST",
+                url: delete_url,
+                data: {id: id},
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        console.log(true);
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        })
+    });
+
+
+</script>
